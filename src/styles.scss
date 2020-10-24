@@ -1,0 +1,34 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$bingo-primary: mat-palette($mat-deep-orange);
+$bingo-accent: mat-palette($mat-brown, A200, A100, A400);
+$bingo-warn: mat-palette($mat-red);
+$bingo-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $bingo-primary,
+      accent: $bingo-accent,
+      warn: $bingo-warn
+    )
+  )
+);
+
+.fall-dark-theme {
+  @include angular-material-theme($bingo-theme);
+  background: #303030;
+  color: mat-color(map-get($bingo-theme, foreground), text);
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.loader {
+  background-color: map-get($bingo-primary, 500);
+}
