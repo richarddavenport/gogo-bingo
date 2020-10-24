@@ -1,4 +1,20 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<ngx-loading-bar barClass="loader" color="transparent" [includeSpinner]="false" height=".2rem"></ngx-loading-bar>
+<mat-toolbar>
+  <span>GoGo Bingo!</span>
+  <a routerLink="new-game" color="accent" mat-button> New Game </a>
+  <button class="theme-changer" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Change Theme">
+    <mat-icon>format_color_fill</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="onChangeTheme('fall-dark-theme')">
+      <span>Fall</span>
+    </button>
+    <button mat-menu-item (click)="onChangeTheme('christmas-dark-theme')">
+      <span>Christmas</span>
+    </button>
+    <button mat-menu-item (click)="onChangeTheme('basic-dark-theme')">
+      <span>Basic</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>

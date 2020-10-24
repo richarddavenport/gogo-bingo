@@ -1,0 +1,80 @@
+@import '~@angular/material/theming';
+@import '../../styles.scss';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.center {
+  text-align: center;
+}
+
+mat-card {
+  max-width: calc(5rem * 5 + 0.25rem * 5 + 32px + 5 * 0.25rem);
+}
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.25rem;
+}
+
+.space {
+  width: 5rem;
+  height: 5rem;
+  border: 0.25rem solid;
+  border-color: map-get($bingo-primary, 500);
+  cursor: pointer;
+  &:hover {
+    background-color: map-get($bingo-accent, 300);
+  }
+  &.selected {
+    background-color: map-get($bingo-primary, 300);
+  }
+  &.free {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: map-get($bingo-primary, 500);
+    &:hover {
+      border-color: map-get($bingo-primary, 500);
+    }
+  }
+}
+
+.p {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.start {
+  margin-top: 1rem;
+}
+
+.header {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+mat-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-radio-button + mat-radio-button {
+  margin-top: 0.5rem;
+}
+
+.or {
+  border-top: 1px solid map-get($bingo-primary, 500);
+  border-bottom: 1px solid map-get($bingo-primary, 500);
+  margin: 2rem;
+  padding: 0.5rem;
+  width: 8rem;
+  font-style: italic;
+  font-size: 1.5rem;
+  text-align: center;
+}

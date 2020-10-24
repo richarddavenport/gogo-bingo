@@ -1,0 +1,65 @@
+:host {
+  position: relative;
+  display: block;
+  pointer-events: none;
+
+  .ngx-spinner {
+    transition: 350ms linear all;
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    .ngx-spinner-icon {
+      width: 14px;
+      height: 14px;
+
+      border: solid 2px transparent;
+      border-top-color: inherit;
+      border-left-color: inherit;
+      border-radius: 50%;
+      animation: loading-bar-spinner 400ms linear infinite;
+    }
+  }
+
+  .ngx-bar {
+    transition: width 350ms;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    border-bottom-right-radius: 1px;
+    border-top-right-radius: 1px;
+
+    [dir='rtl'] & {
+      right: 0;
+      left: unset;
+    }
+  }
+
+  &[fixed='true'] {
+    z-index: 10002;
+    .ngx-bar {
+      position: fixed;
+    }
+    .ngx-spinner {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+
+      [dir='rtl'] & {
+        right: 10px;
+        left: unset;
+      }
+    }
+  }
+}
+
+@keyframes loading-bar-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

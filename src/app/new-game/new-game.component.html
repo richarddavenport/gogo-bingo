@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <p class="p">Pick the type of game</p>
+  <mat-radio-group (change)="onGameChange($event)">
+    <mat-radio-button color="primary" *ngFor="let gameType of gameTypes" [value]="gameType">
+      {{ GameType[gameType] }}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <div class="or">or</div>
+
+  <p class="p">Select the squares you'd like to play</p>
+
+  <mat-card>
+    <div class="card">
+      <div class="center header">B</div>
+      <div class="center header">I</div>
+      <div class="center header">N</div>
+      <div class="center header">G</div>
+      <div class="center header">O</div>
+
+      <div class="space" [class.selected]="selectedSpaces.includes(0)" (click)="onSelectSpace(0)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(1)" (click)="onSelectSpace(1)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(2)" (click)="onSelectSpace(2)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(3)" (click)="onSelectSpace(3)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(4)" (click)="onSelectSpace(4)"></div>
+
+      <div class="space" [class.selected]="selectedSpaces.includes(5)" (click)="onSelectSpace(5)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(6)" (click)="onSelectSpace(6)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(7)" (click)="onSelectSpace(7)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(8)" (click)="onSelectSpace(8)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(9)" (click)="onSelectSpace(9)"></div>
+
+      <div class="space" [class.selected]="selectedSpaces.includes(10)" (click)="onSelectSpace(10)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(11)" (click)="onSelectSpace(11)"></div>
+      <div class="space free">FREE SPACE</div>
+      <div class="space" [class.selected]="selectedSpaces.includes(13)" (click)="onSelectSpace(13)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(14)" (click)="onSelectSpace(14)"></div>
+
+      <div class="space" [class.selected]="selectedSpaces.includes(15)" (click)="onSelectSpace(15)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(16)" (click)="onSelectSpace(16)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(17)" (click)="onSelectSpace(17)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(18)" (click)="onSelectSpace(18)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(19)" (click)="onSelectSpace(19)"></div>
+
+      <div class="space" [class.selected]="selectedSpaces.includes(20)" (click)="onSelectSpace(20)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(21)" (click)="onSelectSpace(21)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(22)" (click)="onSelectSpace(22)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(23)" (click)="onSelectSpace(23)"></div>
+      <div class="space" [class.selected]="selectedSpaces.includes(24)" (click)="onSelectSpace(24)"></div>
+    </div>
+  </mat-card>
+
+  <div class="start">
+    <button mat-raised-button color="primary" (click)="onStart(); loader.start()">Start Game</button>
+  </div>
+</div>
