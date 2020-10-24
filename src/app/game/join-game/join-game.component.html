@@ -1,1 +1,1 @@
-<button mat-raised-button color="primary" (click)="onJoinGame($event)">Join Game</button>
+<button [disabled]="joining" mat-raised-button color="primary" (click)="onJoinGame()">Join Game</button>

@@ -1,4 +1,6 @@
 @import "~@angular/material/theming";
+@import "mixins";
+
 @include mat-core();
 
 $bingo-primary: mat-palette($mat-deep-orange);
@@ -14,7 +16,12 @@ $bingo-theme: mat-dark-theme(
   )
 );
 
+$merriweather-typography: mat-typography-config(
+  $font-family: "Merriweather, Roboto, monospace"
+);
+
 .fall-dark-theme {
+  @include angular-material-typography($merriweather-typography);
   @include angular-material-theme($bingo-theme);
   background: #303030;
   color: mat-color(map-get($bingo-theme, foreground), text);
@@ -23,10 +30,7 @@ $bingo-theme: mat-dark-theme(
 html,
 body {
   height: 100%;
-}
-body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .loader {
