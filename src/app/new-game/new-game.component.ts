@@ -3,7 +3,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { MatRadioChange, MatRadioGroup } from "@angular/material/radio";
 import { firestore } from "firebase/app";
 import { LoadingBarService } from "../components/loader/loading-bar.service";
-import { GameType } from "./GameType";
+import { GameType } from "../GameType";
 
 @Component({
   selector: "app-new-game",

@@ -8,15 +8,20 @@ const routes: Routes = [
   {
     path: ":id",
     component: GameComponent,
-    children: [{ path: ":card", component: CardComponent }]
-  },
-  {
-    path: "join",
-    component: JoinGameComponent
-  },
-  {
-    path: "**",
-    redirectTo: "join"
+    children: [
+      {
+        path: "join",
+        component: JoinGameComponent
+      },
+      {
+        path: ":card",
+        component: CardComponent
+      },
+      {
+        path: "**",
+        redirectTo: "join"
+      }
+    ]
   }
 ];
 

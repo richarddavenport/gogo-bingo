@@ -1,4 +1,4 @@
-import { GameType } from "./new-game/GameType";
+import { GameType } from "./GameType";
 
 export interface Game {
   spaces: number[];
