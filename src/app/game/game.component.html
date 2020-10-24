@@ -1,5 +1,6 @@
 <pre *ngIf="doc$ | async as doc">
   <code>
-    {{doc | json}}
+    {{doc.spaces | json}}
   </code>
 </pre>
+<router-outlet></router-outlet>
