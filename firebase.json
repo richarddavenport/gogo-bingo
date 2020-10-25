@@ -6,7 +6,7 @@
   "hosting": [
     {
       "target": "bingo",
-      "public": "dist/bingo",
+      "public": "dist/gogo-bingo",
       "ignore": ["**/.*"],
       "headers": [
         {
