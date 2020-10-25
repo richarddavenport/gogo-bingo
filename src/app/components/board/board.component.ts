@@ -6,7 +6,11 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./board.component.scss"]
 })
 export class BoardComponent implements OnInit {
+  selectedSpaces = [];
+  card = [];
+
   constructor() {}
 
   ngOnInit() {}
+  onSelectSpace(index: number) {}
 }
