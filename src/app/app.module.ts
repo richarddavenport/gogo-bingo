@@ -8,9 +8,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { LoadingBarModule } from "./components/loader/loading-bar.module";
 import { MaterialModule } from "./material.module";
+import { WelcomeComponent } from "./welcome/welcome.component";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, WelcomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

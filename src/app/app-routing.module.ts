@@ -1,7 +1,12 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { WelcomeComponent } from "./welcome/welcome.component";
 
 const routes: Routes = [
+  {
+    path: "",
+    component: WelcomeComponent
+  },
   {
     path: "new-game",
     loadChildren: () =>
@@ -10,10 +15,6 @@ const routes: Routes = [
   {
     path: "game",
     loadChildren: () => import("./game/game.module").then(m => m.GameModule)
-  },
-  {
-    path: "**",
-    redirectTo: "game"
   }
 ];
 
