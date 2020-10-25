@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gogo-bingo": {
+      "hosting": {
+        "bingo": [
+          "gogo-bingo"
+        ]
+      }
+    }
+  }
+}
