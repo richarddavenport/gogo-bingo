@@ -1,0 +1,88 @@
+
+	<mat-card>
+		<div class="card">
+			<div class="center header">B</div>
+			<div class="center header">I</div>
+			<div class="center header">N</div>
+			<div class="center header">G</div>
+			<div class="center header">O</div>
+
+			<div class="space playing" [class.selected]="selectedSpaces.includes(0)" (click)="onSelectSpace(0)">
+				{{card.slice(0, 1)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(1)" (click)="onSelectSpace(1)">
+				{{card.slice(1, 2)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(2)" (click)="onSelectSpace(2)">
+				{{card.slice(2, 3)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(3)" (click)="onSelectSpace(3)">
+				{{card.slice(3, 4)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(4)" (click)="onSelectSpace(4)">
+				{{card.slice(4, 5)}}
+			</div>
+
+			<div class="space" [class.selected]="selectedSpaces.includes(5)" (click)="onSelectSpace(5)">
+				{{card.slice(5, 6)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(6)" (click)="onSelectSpace(6)">
+				{{card.slice(6, 7)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(7)" (click)="onSelectSpace(7)">
+				{{card.slice(7, 8)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(8)" (click)="onSelectSpace(8)">
+				{{card.slice(8, 9)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(9)" (click)="onSelectSpace(9)">
+				{{card.slice(9, 10)}}
+			</div>
+
+			<div class="space" [class.selected]="selectedSpaces.includes(10)" (click)="onSelectSpace(10)">
+				{{card.slice(10, 11)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(11)" (click)="onSelectSpace(11)">
+				{{card.slice(11, 12)}}
+			</div>
+			<div class="space free center"> <span> FREE </span> <span> SPACE </span></div>
+			<div class="space" [class.selected]="selectedSpaces.includes(13)" (click)="onSelectSpace(13)">
+				{{card.slice(13, 14)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(14)" (click)="onSelectSpace(14)">
+				{{card.slice(14, 15)}}
+			</div>
+
+			<div class="space" [class.selected]="selectedSpaces.includes(15)" (click)="onSelectSpace(15)">
+				{{card.slice(15, 16)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(16)" (click)="onSelectSpace(16)">
+				{{card.slice(16, 17)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(17)" (click)="onSelectSpace(17)">
+				{{card.slice(17, 18)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(18)" (click)="onSelectSpace(18)">
+				{{card.slice(18, 19)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(19)" (click)="onSelectSpace(19)">
+				{{card.slice(19, 20)}}
+			</div>
+
+			<div class="space" [class.selected]="selectedSpaces.includes(20)" (click)="onSelectSpace(20)">
+				{{card.slice(20, 21)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(21)" (click)="onSelectSpace(21)">
+				{{card.slice(21, 22)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(22)" (click)="onSelectSpace(22)">
+				{{card.slice(22, 23)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(23)" (click)="onSelectSpace(23)">
+				{{card.slice(23, 24)}}
+			</div>
+			<div class="space" [class.selected]="selectedSpaces.includes(24)" (click)="onSelectSpace(24)">
+				{{card.slice(24)}}
+			</div>
+		</div>
+	</mat-card>

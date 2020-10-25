@@ -1,5 +1,5 @@
-[ ] - add a landing page with instructions and new game button, and join game with code option
-[ ] - add another start game button below gametypes, leave the current one
+[x] - add a landing page with instructions and new game button, and join game with code option
+[x] - add another start game button below gametypes, leave the current one
 [ ] - create board component
 [ ] - when creating a new game, go to caller view
 [ ] - create caller view

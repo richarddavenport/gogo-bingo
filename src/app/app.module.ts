@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { environment } from "../environments/environment";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { BoardModule } from "./components/board/board.module";
 import { LoadingBarModule } from "./components/loader/loading-bar.module";
 import { MaterialModule } from "./material.module";
 import { WelcomeComponent } from "./welcome/welcome.component";
@@ -19,7 +20,8 @@ import { WelcomeComponent } from "./welcome/welcome.component";
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    LoadingBarModule
+    LoadingBarModule,
+    BoardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

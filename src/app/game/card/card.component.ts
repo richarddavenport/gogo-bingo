@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
   card$: Observable<any>;
   gameId: string;
   cardId: string;
-
+ 
   constructor(private route: ActivatedRoute, private afs: AngularFirestore) {}
 
   ngOnInit() {

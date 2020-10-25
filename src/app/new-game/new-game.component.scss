@@ -1,5 +1,5 @@
-@import '~@angular/material/theming';
-@import '../../styles.scss';
+@import "~@angular/material/theming";
+@import "../../styles.scss";
 
 .wrapper {
   display: flex;
@@ -71,7 +71,7 @@ mat-radio-button + mat-radio-button {
 .or {
   border-top: 1px solid map-get($bingo-primary, 500);
   border-bottom: 1px solid map-get($bingo-primary, 500);
-  margin: 2rem;
+  margin-top: 2rem;
   padding: 0.5rem;
   width: 8rem;
   font-style: italic;
