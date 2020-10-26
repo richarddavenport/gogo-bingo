@@ -1,0 +1,13 @@
+<ng-container *ngIf="index === 12; else elseTemplate">
+  <div class="space free center"><span> FREE </span> <span> SPACE </span></div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div
+    class="space"
+    [class.playing]="playing?.includes(index)"
+    [class.selected]="selectedSpaces?.includes(index)"
+    (click)="selected.emit(index)"
+  >
+    {{ spaces?.slice(index, index + 1) }}
+  </div>
+</ng-template>

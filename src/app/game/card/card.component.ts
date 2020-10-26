@@ -1,48 +1,45 @@
-import { Component, OnInit } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { ActivatedRoute } from "@angular/router";
-import { firestore } from "firebase";
-import { Observable } from "rxjs";
-import { map, switchMap, tap, withLatestFrom } from "rxjs/operators";
-import { Game } from "../../game.model";
+import { Component, OnInit } from '@angular/core';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { ActivatedRoute } from '@angular/router';
+import { firestore } from 'firebase/app';
+import { Observable, zip } from 'rxjs';
+import { map, switchMap, take, tap } from 'rxjs/operators';
+import { Game } from '../../game.model';
 
 @Component({
-  selector: "app-card",
-  templateUrl: "./card.component.html",
-  styleUrls: ["./card.component.scss"]
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  public selectedSpaces = [];
-  card$: Observable<any>;
-  gameId: string;
-  cardId: string;
- 
+  cardId$: Observable<string>;
+  gameDoc: AngularFirestoreDocument<Game>;
+  game$: Observable<Game>;
+
   constructor(private route: ActivatedRoute, private afs: AngularFirestore) {}
 
   ngOnInit() {
-    this.card$ = this.route.parent.params.pipe(
-      map(params => params["id"]),
-      tap(gameId => this.gameId = gameId),
-      switchMap(gameId => this.afs.doc<Game>(`games/${gameId}`).valueChanges()),
-      switchMap(gameDoc => this.route.params.pipe(
-        map(params => params["card"]),
-        tap(cardId => this.cardId = cardId),
-        map(cardId => gameDoc?.cards[cardId].card))
-      ),
+    this.cardId$ = this.route.params.pipe(map((params) => params['card']));
+    this.game$ = this.route.parent.params.pipe(
+      tap((params) => (this.gameDoc = this.afs.doc<Game>(`games/${params['id']}`))),
+      map((params) => this.afs.doc<Game>(`games/${params['id']}`)),
+      switchMap((gameDoc) => gameDoc.valueChanges()),
     );
   }
 
-  onSelectSpace(index: number): void {
-    const indexOf = this.selectedSpaces.indexOf(index);
-    const key = `cards.${this.cardId}.selectedSpaces`;
-    let update;
-    if (indexOf === -1) {
-      this.selectedSpaces.push(index);
-      update = { [key]: firestore.FieldValue.arrayUnion(index)};
-    } else {
-      this.selectedSpaces.splice(indexOf, 1);
-      update = { [key]: firestore.FieldValue.arrayRemove(index)};
-    }
-    this.afs.doc(`games/${this.gameId}`).update(update);
+  onSelectSpace(index: number): any {
+    zip(this.game$, this.cardId$)
+      .pipe(take(1))
+      .subscribe(([game, cardId]) => {
+        const key = `cards.${cardId}.selectedSpaces`;
+        let update: any;
+        const indexOf = game.cards[cardId].selectedSpaces.indexOf(index);
+        if (indexOf === -1) {
+          update = { [key]: firestore.FieldValue.arrayUnion(index) };
+        } else {
+          update = { [key]: firestore.FieldValue.arrayRemove(index) };
+        }
+        return this.gameDoc.update(update);
+      });
   }
 }

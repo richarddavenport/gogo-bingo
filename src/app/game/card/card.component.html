@@ -1,3 +1,11 @@
-<div class="wrapper" *ngIf="card$ | async as card">
-	<app-board></app-board>
-</div>
+<ng-container *ngIf="cardId$ | async as cardId">
+  <div class="wrapper" *ngIf="game$ | async as game">
+    <app-board
+      [cardId]="cardId"
+      [playing]="game.spaces"
+      [spaces]="game.cards[cardId].spaces"
+      [selectedSpaces]="game.cards[cardId].selectedSpaces"
+      (selected)="onSelectSpace($event)"
+    ></app-board>
+  </div>
+</ng-container>

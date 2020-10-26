@@ -1,1 +1,4 @@
-export type Card = number[][];
+export interface Card {
+  spaces: number[];
+  selectedSpaces: number[];
+}

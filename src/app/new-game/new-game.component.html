@@ -1,20 +1,20 @@
 <div class="wrapper">
-	<p class="p">Pick the type of game</p>
-	<mat-radio-group (change)="onGameChange($event)">
-		<mat-radio-button color="primary" *ngFor="let gameType of gameTypes" [value]="gameType">
-			{{ GameType[gameType] }}
-		</mat-radio-button>
-	</mat-radio-group>
+  <p class="p">Pick the type of game</p>
+  <mat-radio-group (change)="onGameChange($event)">
+    <mat-radio-button color="primary" *ngFor="let gameType of gameTypes" [value]="gameType">
+      {{ GameType[gameType] }}
+    </mat-radio-button>
+  </mat-radio-group>
 
-	<div class="start">
-		<button mat-raised-button color="primary" (click)="onStart(); loader.start()">Start Game</button>
-	</div>
+  <div class="start">
+    <button mat-raised-button color="primary" (click)="onStart(); loader.start()">Start Game</button>
+  </div>
 
-	<div class="or">or</div>
+  <div class="or">or</div>
 
-	<p class="p">Select the squares you'd like to play</p>
-	<app-board></app-board>
-	<div class="start">
-		<button mat-raised-button color="primary" (click)="onStart(); loader.start()">Start Game</button>
-	</div>
+  <p class="p">Select the squares you'd like to play</p>
+  <app-board [selectedSpaces]="selectedSpaces" (selected)="onSelectSpace($event)"></app-board>
+  <div class="start">
+    <button mat-raised-button color="primary" (click)="onStart(); loader.start()">Start Game</button>
+  </div>
 </div>

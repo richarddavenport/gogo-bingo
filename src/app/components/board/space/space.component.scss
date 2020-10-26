@@ -1,0 +1,48 @@
+@import '~@angular/material/theming';
+@import '../../../../styles';
+
+.center {
+  @include center;
+}
+
+.playing {
+  position: relative;
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.25rem solid map-get($bingo-accent, 300);
+  }
+}
+
+.space {
+  @include center;
+  width: 5rem;
+  height: 5rem;
+  border: 0.25rem solid;
+  border-color: map-get($bingo-primary, 500);
+  cursor: pointer;
+  font-size: 3rem;
+  &:hover {
+    background-color: map-get($bingo-accent, 300);
+  }
+  &.selected {
+    background-color: map-get($bingo-primary, 300);
+    // color: mat-color($bingo-primary, default-contrast);
+    color: mat-contrast($bingo-primary, 300);
+
+    &::before {
+      border-color: transparent;
+    }
+  }
+  &.free {
+    font-size: 1rem;
+    border-color: map-get($bingo-primary, 500);
+    &:hover {
+      border-color: map-get($bingo-primary, 500);
+    }
+  }
+}

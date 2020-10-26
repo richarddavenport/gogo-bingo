@@ -1,32 +1,24 @@
-import { Component, ViewChild } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { MatRadioChange, MatRadioGroup } from "@angular/material/radio";
-import { firestore } from "firebase/app";
-import { LoadingBarService } from "../components/loader/loading-bar.service";
-import { GameType } from "../GameType";
+import { Component, ViewChild } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { MatRadioChange, MatRadioGroup } from '@angular/material/radio';
+import { firestore } from 'firebase/app';
+import { LoadingBarService } from '../components/loader/loading-bar.service';
+import { GameType } from '../GameType';
 
 @Component({
-  selector: "app-new-game",
-  templateUrl: "./new-game.component.html",
-  styleUrls: ["./new-game.component.scss"]
+  selector: 'app-new-game',
+  templateUrl: './new-game.component.html',
+  styleUrls: ['./new-game.component.scss'],
 })
 export class NewGameComponent {
   public GameType = GameType;
   public selectedSpaces = [];
-  public gameTypes: GameType[] = [
-    GameType.Normal,
-    GameType.Horizontals,
-    GameType.Verticals,
-    GameType.Diagonals
-  ];
+  public gameTypes: GameType[] = [GameType.Normal, GameType.Horizontals, GameType.Verticals, GameType.Diagonals];
 
   @ViewChild(MatRadioGroup) gameTypePicker: MatRadioGroup;
   loader = this.loadingBar.useRef();
 
-  constructor(
-    private afs: AngularFirestore,
-    private loadingBar: LoadingBarService
-  ) {}
+  constructor(private afs: AngularFirestore, private loadingBar: LoadingBarService) {}
 
   onGameChange(_: MatRadioChange): void {
     this.selectedSpaces = [];
@@ -46,14 +38,12 @@ export class NewGameComponent {
     const docRef = await this.afs
       .collection(`games`)
       .add({
-        gameType: !this.selectedSpaces.length
-          ? this.gameTypePicker.selected.value
-          : GameType.Custom,
+        gameType: !this.selectedSpaces.length ? this.gameTypePicker.selected.value : GameType.Custom,
         spaces: this.selectedSpaces,
-        cards: [],
-        createdAt: firestore.Timestamp.now()
+        cards: {},
+        createdAt: firestore.Timestamp.now(),
       })
-      .catch(error => {
+      .catch((error) => {
         this.loader.stop();
         console.error(error);
       });
