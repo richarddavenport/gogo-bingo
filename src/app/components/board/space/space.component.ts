@@ -11,6 +11,7 @@ export class SpaceComponent {
   @Input() spaces: number[] = [];
   @Input() selectedSpaces: number[] = [];
   @Input() index: number = 0;
+  @Input() disabled = false;
 
   @Output() selected = new EventEmitter<number>();
 }

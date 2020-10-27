@@ -1,0 +1,6 @@
+@import '../../../styles.scss';
+
+.wrapper {
+  @include center;
+  margin: 5rem 0;
+}

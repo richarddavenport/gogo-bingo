@@ -4,6 +4,7 @@
 
     <app-space
       *ngFor="let index of indexes"
+      [disabled]="disabled"
       [selectedSpaces]="selectedSpaces"
       [playing]="playing"
       [spaces]="spaces"

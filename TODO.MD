@@ -1,13 +1,14 @@
 [x] - add a landing page with instructions and new game button, and join game with code option
 [x] - add another start game button below gametypes, leave the current one
 [x] - create board component
-[ ] - when creating a new game, go to caller view
-[ ] - create caller view
-[ ] - make join game view look better
-[ ] - fix game board to only show playing spaces if playing a custom game
-[ ] - show called numbers at top of game board
+[x] - when creating a new game, go to caller view
+[x] - create caller view
+[x] - show called numbers at top of game board
+[x] - show cards in host view and what is selected
+[x] - fix game board to only show playing spaces if playing a custom game
+[ ] - legend and board title
 [ ] - allow game to complete if someone has a bingo
 [ ] - add bingo button to game card
+[ ] - make join game view look better
 [ ] - add notifications to called numbers
 [ ] - add notification to host if someone calls bingo
-[ ] - show cards in host view and what is selected

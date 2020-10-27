@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -6,12 +6,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent {
-  @Input() cardId: string;
   @Input() playing: number[] = [];
   @Input() spaces: number[] = [];
   @Input() selectedSpaces: number[] = [];
+  @Input() disabled = false;
 
   @Output() selected = new EventEmitter<number>();
+
   // prettier-ignore
   indexes = [
     0,5,10,15,20,

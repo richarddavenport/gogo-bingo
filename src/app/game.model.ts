@@ -8,4 +8,6 @@ export interface Game {
   gameType: GameType;
   createdAt: firebase.firestore.Timestamp;
   cards: Cards;
+  availableNumbers: number[];
+  calledNumbers: number[];
 }

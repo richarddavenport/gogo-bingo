@@ -4,9 +4,10 @@
 <ng-template #elseTemplate>
   <div
     class="space"
+    [class.disabled]="disabled"
     [class.playing]="playing?.includes(index)"
     [class.selected]="selectedSpaces?.includes(index)"
-    (click)="selected.emit(index)"
+    (click)="disabled ? null : selected.emit(index)"
   >
     {{ spaces?.slice(index, index + 1) }}
   </div>

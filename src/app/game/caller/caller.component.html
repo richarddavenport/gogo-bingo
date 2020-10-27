@@ -1,0 +1,20 @@
+<div class="wrapper" *ngIf="game$ | async as game">
+  <button mat-stroked-button color="primary" [cdkCopyToClipboard]="origin">
+    Copy Game Link
+    <mat-icon>content_copy</mat-icon>
+  </button>
+
+  <button mat-raised-button [disabled]="game.availableNumbers.length === 0" color="primary" (click)="onCall()">Call Number</button>
+
+  <p>{{ game.calledNumbers }}</p>
+
+  <div *ngFor="let card of game.cards | keyvalue">
+    <label>{{ card.key }}</label>
+    <app-board
+      [disabled]="true"
+      [selectedSpaces]="card.value.selectedSpaces"
+      [spaces]="card.value.spaces"
+      [playing]="game.spaces"
+    ></app-board>
+  </div>
+</div>
