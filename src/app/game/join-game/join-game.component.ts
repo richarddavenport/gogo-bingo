@@ -10,9 +10,10 @@ import { Game } from '../../game.model';
 @Component({
   selector: 'app-join-game',
   templateUrl: './join-game.component.html',
-  styleUrls: ['./join-game.component.css'],
+  styleUrls: ['./join-game.component.scss'],
 })
 export class JoinGameComponent implements OnInit {
+  name: string;
   joining: boolean = false;
   loader = this.loadingBar.useRef();
 
@@ -31,9 +32,11 @@ export class JoinGameComponent implements OnInit {
     const cardId = uuid(6);
     const spacesKey = `cards.${cardId}.spaces`;
     const selectedSpacesKey = `cards.${cardId}.selectedSpaces`;
+    const nameKey = `cards.${cardId}.name`;
     const update = {
       [spacesKey]: newCard(),
       [selectedSpacesKey]: [],
+      [nameKey]: this.name,
     };
 
     this.route.parent.params

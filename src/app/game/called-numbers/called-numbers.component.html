@@ -1,0 +1,6 @@
+<p class="called">
+  <span *ngFor="let call of called; let last = last">
+    <span> {{ call }}</span>
+    <span *ngIf="!last">,&nbsp;</span>
+  </span>
+</p>

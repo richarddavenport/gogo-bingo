@@ -1,14 +1,17 @@
 <div class="wrapper" *ngIf="game$ | async as game">
-  <button mat-stroked-button color="primary" [cdkCopyToClipboard]="origin">
-    Copy Game Link
-    <mat-icon>content_copy</mat-icon>
-  </button>
+  <p class="actions">
+    <button mat-raised-button [disabled]="game.availableNumbers.length === 0" color="primary" (click)="onCall()">Call Number</button>
 
-  <button mat-raised-button [disabled]="game.availableNumbers.length === 0" color="primary" (click)="onCall()">Call Number</button>
+    <button mat-button color="primary" [cdkCopyToClipboard]="origin" class="copy">
+      Copy Game Link
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </p>
 
-  <p>{{ game.calledNumbers }}</p>
+  <app-called-numbers class="called" [calledNumbers]="game.calledNumbers"></app-called-numbers>
 
-  <div *ngFor="let card of game.cards | keyvalue">
+  <div *ngFor="let card of game.cards | keyvalue" class="card">
+    <label>{{ card.value.name }}</label>
     <app-board
       [cardId]="card.key"
       [disabled]="true"
