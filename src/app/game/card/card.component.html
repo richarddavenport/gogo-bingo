@@ -1,6 +1,7 @@
 <ng-container *ngIf="cardId$ | async as cardId">
   <div class="wrapper" *ngIf="game$ | async as game">
     <app-board
+      [gameType]="game.gameType"
       [cardId]="cardId"
       [playing]="game.spaces"
       [spaces]="game.cards[cardId].spaces"

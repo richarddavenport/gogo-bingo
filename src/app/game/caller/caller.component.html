@@ -9,8 +9,8 @@
   <p>{{ game.calledNumbers }}</p>
 
   <div *ngFor="let card of game.cards | keyvalue">
-    <label>{{ card.key }}</label>
     <app-board
+      [cardId]="card.key"
       [disabled]="true"
       [selectedSpaces]="card.value.selectedSpaces"
       [spaces]="card.value.spaces"

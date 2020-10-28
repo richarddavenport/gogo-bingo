@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { GameType } from 'src/app/GameType';
 
 @Component({
   selector: 'app-board',
@@ -6,12 +7,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent {
+  @Input() gameType: GameType;
   @Input() playing: number[] = [];
   @Input() spaces: number[] = [];
   @Input() selectedSpaces: number[] = [];
   @Input() disabled = false;
+  @Input() cardId: string;
+  @Input() hideLegend = false;
+  @Input() hideCardId = false;
 
   @Output() selected = new EventEmitter<number>();
+
+  GameType = GameType;
 
   // prettier-ignore
   indexes = [

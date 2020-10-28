@@ -1,6 +1,12 @@
 <mat-card>
+  <mat-card-subtitle *ngIf="!hideCardId">
+    <div class="header">
+      <span> Card {{ cardId }}</span>
+      <span *ngIf="!disabled">Game Type: {{ GameType[gameType] }} </span>
+    </div>
+  </mat-card-subtitle>
   <div class="card">
-    <div *ngFor="let letter of ['B', 'I', 'N', 'G', 'O']" class="center header">{{ letter }}</div>
+    <div *ngFor="let letter of ['B', 'I', 'N', 'G', 'O']" class="center letters">{{ letter }}</div>
 
     <app-space
       *ngFor="let index of indexes"
@@ -12,4 +18,14 @@
       (selected)="selected.emit($event)"
     ></app-space>
   </div>
+  <mat-card-footer class="footer" *ngIf="!hideLegend && gameType === GameType.Custom">
+    <div class="selected">
+      <div></div>
+      <span>Selected</span>
+    </div>
+    <div class="playing">
+      <div></div>
+      <span>Playing</span>
+    </div>
+  </mat-card-footer>
 </mat-card>
